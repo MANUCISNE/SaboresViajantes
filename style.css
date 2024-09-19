@@ -1,3 +1,4 @@
+/* Regras gerais */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,7 @@ body {
 }
 
 header {
-  background-color: #b89f8a;/* Amarelo dourado suave */
+  background-color: #b89f8a; /* Amarelo dourado suave */
   color: #6a4c42; /* Marrom suave para o texto */
   padding: 20px 0;
   text-align: center;
@@ -27,8 +28,8 @@ header {
 }
 
 .logo img {
-  width: 150px; /* Tamanho ajustado do logo */
-  height: 150px; /* Altura igual à largura para garantir que a imagem seja um círculo */
+  width: 200px; /* Tamanho ajustado do logo */
+  height: 200px; /* Altura igual à largura para garantir que a imagem seja um círculo */
   border-radius: 50%; /* Arredondar a imagem para formar um círculo */
   object-fit: cover; /* Mantém a proporção da imagem dentro do círculo sem distorção */
 }
@@ -39,10 +40,12 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: 20px 0;
+  position: relative; /* Adiciona a posição relativa para que o ::after seja posicionado corretamente */
 }
 
 nav ul li {
   margin: 0 15px;
+  position: relative; /* Adiciona a posição relativa para que o ::after seja posicionado corretamente */
 }
 
 nav ul li a {
@@ -57,7 +60,7 @@ nav ul li a::after {
   content: "";
   display: block;
   height: 3px;
-  background: #6a4c42;
+  background: #6a4c42; /* Cor da linha de destaque */
   width: 0;
   transition: width 0.3s;
   position: absolute;
@@ -79,7 +82,6 @@ nav ul li a:hover::after {
   font-weight: lighter;
   margin: 0;
 }
-
 
 section {
   padding: 40px 20px;
@@ -109,80 +111,6 @@ h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   font-weight: 600; /* Negrito */
-}
-
-
-blockquote {
-  font-size: 1.2rem;
-  font-style: italic;
-  margin: 20px;
-  color: #6a4c42;
-}
-
-footer {
-  background-color: #6a4c42; /* Marrom suave */
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  margin-top: 20px;
-}
-
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin-bottom: 20px;
-}
-
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-section {
-  width: 100%;
-  max-width: 500px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-}
-
-#sobre, #menu, #historia, #feedback, #contato {
-  background-color: #fff3cc;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  font-size: 1.5rem;
-  margin: 10px 0;
 }
 
 blockquote {
@@ -280,7 +208,6 @@ footer {
   text-decoration: underline; /* Sublinha o link ao passar o mouse */
 }
 
-
 #historia {
   background-color: #fff3cc; /* Cor de fundo suave */
   padding: 40px 20px;
@@ -342,20 +269,74 @@ footer {
   text-align: center;
   width: 200px; /* Largura fixa dos itens */
   flex: 1 1 200px; /* Permite que os itens se ajustem e se distribuam igualmente */
-  max-width: 200px; /* Garantir que os itens não ultrapassem a largura desejada */
+  max-width: 200px; /* Garantir que os itens não ultrapassem a largura definida */
 }
 
-.menu-image {
-  width: 100%; /* Faz a imagem ocupar a largura do contêiner */
-  height: 150px; /* Altura fixa para padronizar o tamanho */
-  object-fit: cover; /* Mantém a proporção da imagem */
-  border-radius: 10px; /* Arredonda as bordas das imagens */
-  margin-bottom: 10px; /* Espaço entre a imagem e o texto */
+.menu-item img {
+  width: 100%; /* Imagem ocupa a largura total do contêiner */
+  height: auto; /* Mantém a proporção da imagem sem distorcer */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+.menu-item h3 {
+  font-size: 1.2rem; /* Tamanho da fonte para os títulos dos itens do menu */
+  margin-top: 10px;
 }
 
 .menu-item p {
-  font-size: 1.1rem;
+  font-size: 1rem; /* Tamanho da fonte para a descrição dos itens do menu */
   color: #6a4c42; /* Cor do texto */
-  margin: 0;
 }
 
+/* Consultas de mídia para responsividade */
+
+/* Em telas pequenas (smartphones) */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #8c5e3c;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+  }
+
+  nav ul li a::after {
+    content: "";
+    display: block;
+    height: 5px;
+    background: #6a4c42; 
+    width: 0;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  .feedback-grid {
+    grid-template-columns: 1fr; /* Uma coluna */
+    gap: 20px; /* Espaço menor entre os itens */
+  }
+
+  .menu-item {
+    width: 100%; /* Itens do menu ocupam toda a largura disponível */
+  }
+
+  .history-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-item {
+    width: 100%; /* Itens de contato ocupam toda a largura disponível */
+  }
+}
