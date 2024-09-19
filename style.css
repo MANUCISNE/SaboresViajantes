@@ -252,7 +252,6 @@ footer {
   padding: 40px 20px;
   text-align: center;
 }
-
 .content {
   display: flex;
   flex-direction: row;
@@ -268,14 +267,19 @@ footer {
   padding: 15px;
   text-align: center;
   width: 200px; /* Largura fixa dos itens */
-  flex: 1 1 200px; /* Permite que os itens se ajustem e se distribuam igualmente */
-  max-width: 200px; /* Garantir que os itens não ultrapassem a largura definida */
+  height: 300px; /* Altura fixa para garantir tamanho consistente */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espaça o conteúdo de forma uniforme */
+  box-sizing: border-box; /* Inclui padding e borda na largura e altura total */
 }
 
 .menu-item img {
   width: 100%; /* Imagem ocupa a largura total do contêiner */
-  height: auto; /* Mantém a proporção da imagem sem distorcer */
+  height: 150px; /* Altura fixa para garantir uniformidade */
+  object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem distorcer */
   border-radius: 10px; /* Bordas arredondadas */
+  margin-bottom: 10px; /* Espaço abaixo da imagem */
 }
 
 .menu-item h3 {
@@ -287,7 +291,6 @@ footer {
   font-size: 1rem; /* Tamanho da fonte para a descrição dos itens do menu */
   color: #6a4c42; /* Cor do texto */
 }
-
 /* Consultas de mídia para responsividade */
 
 /* Em telas pequenas (smartphones) */
