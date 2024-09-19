@@ -303,7 +303,7 @@ footer {
 
   nav ul li a {
     text-decoration: none;
-    color: #8c5e3c;
+    color: #8c5e3c; /* Cor da fonte do menu */
     font-weight: bold;
     font-size: 1.1rem;
     position: relative;
@@ -313,7 +313,7 @@ footer {
     content: "";
     display: block;
     height: 5px;
-    background: #6a4c42; 
+    background: #6a4c42; /* Cor da linha de destaque igual à cor do texto */
     width: 0;
     transition: width 0.3s;
     position: absolute;
@@ -332,6 +332,17 @@ footer {
 
   .menu-item {
     width: 100%; /* Itens do menu ocupam toda a largura disponível */
+    height: auto; /* Ajusta a altura automaticamente */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espaça o conteúdo de forma uniforme */
+  }
+
+  .menu-item img {
+    height: auto; /* Remove a altura fixa para evitar cortes */
+    max-height: 150px; /* Define uma altura máxima para a imagem */
+    object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem distorcer */
+    margin-bottom: 10px; /* Espaço abaixo da imagem */
   }
 
   .history-container {
@@ -343,3 +354,4 @@ footer {
     width: 100%; /* Itens de contato ocupam toda a largura disponível */
   }
 }
+
