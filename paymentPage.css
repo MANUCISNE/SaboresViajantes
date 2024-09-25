@@ -31,6 +31,7 @@ h2 {
   display: flex;
   justify-content: space-around;
   border-bottom: 2px solid #4a90e2;
+  flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte em telas menores */
 }
 
 .resp-tab-item {
@@ -164,7 +165,6 @@ h3.pay-title {
   text-decoration: underline; /* Sublinha o link ao passar o mouse */
 }
 
-
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
   .sap_tabs {
@@ -172,13 +172,31 @@ h3.pay-title {
       padding: 10px;
   }
 
+  .resp-tabs-list {
+      flex-direction: column; /* Alinha os itens verticalmente em telas menores */
+  }
+
   .transaction {
-      flex-direction: column;
+      flex-direction: column; /* Muda a direção para coluna em telas pequenas */
   }
 
   .user-form {
       width: 100%;
       margin-bottom: 15px;
+  }
+
+  .user-grids {
+      flex-direction: column; /* Muda a direção para coluna em telas pequenas */
+      align-items: flex-start; /* Alinha os itens à esquerda */
+  }
+
+  .user-left, .user-right {
+      width: 100%; /* Faz as colunas ocuparem a largura total */
+      text-align: left; /* Alinha o texto à esquerda */
+  }
+
+  .confirm-btn {
+      width: 100%; /* Botão ocupa a largura total */
   }
 }
 
