@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabores Viajantes - Pastéis de Nata</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
 </head>
 
 <body>
     <!-- Logo no topo -->
     <header>
-      <div class="header-content">
-          <!-- Logo no topo -->
-          <div class="logo">
-              <img src="logo-sabor-viajante.png" alt="Logo Sabor Viajante">
-          </div>
-          <!-- Navegação -->
-          <nav>
-              <ul>
-                  <li><a href="#sobre">Sobre a Loja</a></li>
-                  <li><a href="#menu">Menu</a></li>
-            <li><a href="#historia">História</a></li>
-            <li><a href="#feedback">Feedback</a></li>
-            <li><a href="#contato">Contato</a></li>
-            </ul>
-          </nav>
-    
-<!-- Seção do Carrinho -->
-<section id="carrinho">
-    <!-- Ícone do Carrinho -->
-    <div class="cart">
-        <a href="#carrinho"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
-    </div>
+        <div class="header-content">
+            <!-- Logo no topo -->
+            <div class="logo">
+                <img src="logo-sabor-viajante.png" alt="Logo Sabor Viajante">
+            </div>
+            <!-- Navegação -->
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre a Loja</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#historia">História</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
 
-    <h2>Carrinho de Compras</h2>
-    <div id="cart-items"></div>
-    <div id="cart-total"></div>
+            <!-- Seção do Carrinho -->
+            <section id="carrinho" style="display: none;"> <!-- Ocultando a seção inicialmente -->
+                <!-- Ícone do Carrinho -->
+                <div class="cart">
+                    <a href="#carrinho"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+                </div>
 
-    <!-- Botão de Finalizar Compra -->
-    <button id="finalizar-compra" class="checkout-btn" style="display: none;" onclick="finalizarCompra()">Finalizar Compra</button>
+                <h2>Carrinho de Compras</h2>
+                <div id="cart-items"></div>
+                <div id="cart-total"></div>
 
-</section>
+                <!-- Botão de Finalizar Compra -->
+                <button id="finalizar-compra" class="checkout-btn" style="display: none;" onclick="finalizarCompra()">Finalizar Compra</button>
+            </section>
 
-<!-- Slogan -->
-          <div class="slogan">
-              <h1>Sabores Viajantes</h1>
-              <p>A verdadeira experiência dos pastéis de nata</p>
-          </div>
-      </div>
-  </header>
-  
+            <!-- Slogan -->
+            <div class="slogan">
+                <h1>Sabores Viajantes</h1>
+                <p>A verdadeira experiência dos pastéis de nata</p>
+            </div>
+        </div>
+    </header>
+
     <!-- Seção Sobre a Loja com Imagem -->
     <section id="sobre">
         <h2>Sobre a Loja</h2>
@@ -61,97 +60,94 @@
         </div>
     </section>
 
-    <!-- Seção Menu com Imagem --><!-- Seção Menu com Imagem e Preço -->
-<section id="menu">
-    <h2>Menu de Pastéis de Nata</h2>
-    <div class="content">
-        <div class="menu-item">
-            <img src="imagem-tradicional.jpg" alt="Pastel de Nata Tradicional" class="menu-image">
-            <p>Pastel de Nata Tradicional - €1.50</p>
-            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata Tradicional')">Adicionar ao carrinho</button>
+    <!-- Seção Menu com Imagem -->
+    <section id="menu">
+        <h2>Menu de Pastéis de Nata</h2>
+        <div class="content">
+            <div class="menu-item">
+                <img src="imagem-tradicional.jpg" alt="Pastel de Nata Tradicional" class="menu-image">
+                <p>Pastel de Nata Tradicional - €1.50</p>
+                <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata Tradicional')">Adicionar ao carrinho</button>
+            </div>
+            <div class="menu-item">
+                <img src="imagem-chocolate.jpg" alt="Pastel de Nata com Chocolate" class="menu-image">
+                <p>Pastel de Nata com Chocolate - €2.00</p>
+                <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata com Chocolate')">Adicionar ao carrinho</button>
+            </div>
+            <div class="menu-item">
+                <img src="imagem-frutas.jpg" alt="Pastel de Nata com Frutas" class="menu-image">
+                <p>Pastel de Nata com Frutas - €2.50</p>
+                <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata com Frutas')">Adicionar ao carrinho</button>
+            </div>
+            <div class="menu-item">
+                <img src="imagem-vegano.png" alt="Pastel de Nata Vegano" class="menu-image">
+                <p>Pastel de Nata Vegano - €2.00</p>
+                <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata Vegano')">Adicionar ao carrinho</button>
+            </div>
         </div>
-        <div class="menu-item">
-            <img src="imagem-chocolate.jpg" alt="Pastel de Nata com Chocolate" class="menu-image">
-            <p>Pastel de Nata com Chocolate - €2.00</p>
-            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata com Chocolate')">Adicionar ao carrinho</button>
-        </div>
-        <div class="menu-item">
-            <img src="imagem-frutas.jpg" alt="Pastel de Nata com Frutas" class="menu-image">
-            <p>Pastel de Nata com Frutas - €2.50</p>
-            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata com Frutas')">Adicionar ao carrinho</button>
-        </div>
-        <div class="menu-item">
-            <img src="imagem-vegano.png" alt="Pastel de Nata Vegano" class="menu-image">
-            <p>Pastel de Nata Vegano - €2.00</p>
-            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata Vegano')">Adicionar ao carrinho</button>
-        </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Seção História com Imagem -->
     <section id="historia">
-      <h2>História do Pastel de Nata</h2>
-      <div class="content">
-          <div class="history-container">
-              <div class="history-text">
-                  <p>O pastel de nata tem uma história rica e saborosa que remonta ao início do século XIX em Portugal. Originário do Mosteiro dos Jerónimos em Lisboa, este ícone da pastelaria portuguesa foi criado por monges que usavam receitas antigas para fazer deliciosas sobremesas. Após a Revolução Liberal, a receita foi comercializada e rapidamente se tornou um símbolo nacional. Hoje, o pastel de nata é apreciado em todo o mundo, representando a autenticidade e a tradição da pastelaria portuguesa.</p>
-              </div>
-              <div class="history-image">
-                  <img src="imagem-historia.jpg" alt="História do pastel de nata">
-              </div>
-          </div>
-      </div>
-  </section>
-  
+        <h2>História do Pastel de Nata</h2>
+        <div class="content">
+            <div class="history-container">
+                <div class="history-text">
+                    <p>O pastel de nata tem uma história rica e saborosa que remonta ao início do século XIX em Portugal. Originário do Mosteiro dos Jerónimos em Lisboa, este ícone da pastelaria portuguesa foi criado por monges que usavam receitas antigas para fazer deliciosas sobremesas. Após a Revolução Liberal, a receita foi comercializada e rapidamente se tornou um símbolo nacional. Hoje, o pastel de nata é apreciado em todo o mundo, representando a autenticidade e a tradição da pastelaria portuguesa.</p>
+                </div>
+                <div class="history-image">
+                    <img src="imagem-historia.jpg" alt="História do pastel de nata">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Seção Feedback com Imagem -->
     <section id="feedback">
-      <h2>Feedback de Clientes</h2>
-      <div class="content">
-          <div class="feedback-grid">
-              <div class="feedback-item">
-                  <img src="imagem-feedback1.jpg" alt="Feedback de cliente 1" class="feedback-image">
-                  <blockquote>"Os melhores pastéis de nata que já provei! Um pedaço de Portugal em cada mordida!" – Maria, Lisboa</blockquote>
-              </div>
-              <div class="feedback-item">
-                  <img src="imagem-feedback2.jpg" alt="Feedback de cliente 2" class="feedback-image">
-                  <blockquote>"Simplesmente delicioso! O sabor autêntico e a textura perfeita." – João, Porto</blockquote>
-              </div>
-          </div>
-      </div>
-  </section>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <div class="content">
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <p>Email: <a href="mailto:contato@saborviajante.com">contato@saboresviajantes.com</a></p>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <p>Telefone: +351 123 456 789</p>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Endereço: Rua das Delícias, 123, Lisboa, Portugal</p>
+        <h2>Feedback de Clientes</h2>
+        <div class="content">
+            <div class="feedback-grid">
+                <div class="feedback-item">
+                    <img src="imagem-feedback1.jpg" alt="Feedback de cliente 1" class="feedback-image">
+                    <blockquote>"Os melhores pastéis de nata que já provei! Um pedaço de Portugal em cada mordida!" – Maria, Lisboa</blockquote>
+                </div>
+                <div class="feedback-item">
+                    <img src="imagem-feedback2.jpg" alt="Feedback de cliente 2" class="feedback-image">
+                    <blockquote>"Simplesmente delicioso! O sabor autêntico e a textura perfeita." – João, Porto</blockquote>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <div class="content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email: <a href="mailto:contato@saborviajante.com">contato@saboresviajantes.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>Telefone: +351 123 456 789</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Endereço: Rua das Delícias, 123, Lisboa, Portugal</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Rodapé -->
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2024 Sabores Viajantes. Todos os direitos reservados.</p>
-        <p>
-            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" class="reclamacoes-link">Livro de Reclamações</a>
-        </p>
-    </div>
-</footer>
-
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Sabores Viajantes. Todos os direitos reservados.</p>
+            <p>
+                <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" class="reclamacoes-link">Livro de Reclamações</a>
+            </p>
+        </div>
+    </footer>
 
     <script>
         let carrinho = [];
@@ -161,64 +157,65 @@
             'Pastel de Nata com Frutas': 2.50,
             'Pastel de Nata Vegano': 2.00
         };
-    
+
         // Função para adicionar ao carrinho
         function adicionarAoCarrinho(produto) {
             carrinho.push(produto);
             document.getElementById('cart-count').innerText = carrinho.length;
             mostrarCarrinho();
         }
-    
+
         // Função para remover um item do carrinho
         function removerDoCarrinho(index) {
             carrinho.splice(index, 1);  // Remove o item com base no índice
             document.getElementById('cart-count').innerText = carrinho.length;
             mostrarCarrinho();
         }
-    
+
         // Função para exibir o carrinho
         function mostrarCarrinho() {
             const cartItemsDiv = document.getElementById('cart-items');
+            const cartSection = document.getElementById('carrinho'); // Seção do carrinho
             cartItemsDiv.innerHTML = '';
             let total = 0;
-    
+
             // Exibe os itens do carrinho
             carrinho.forEach((item, index) => {
                 const itemElement = document.createElement('div');
                 itemElement.classList.add('cart-item');  // Adiciona uma classe para o estilo
-    
+
                 // Informações do item
                 const itemInfo = document.createElement('span');  // Usar 'span' para exibir na mesma linha
                 itemInfo.innerText = (index + 1) + '. ' + item + ' - €' + precoPorProduto[item].toFixed(2);
                 itemElement.appendChild(itemInfo);
-    
+
                 // Botão de remover
                 const removerBtn = document.createElement('button');
                 removerBtn.innerText = 'Remover';
                 removerBtn.classList.add('remove-btn');
                 removerBtn.onclick = () => removerDoCarrinho(index);
                 itemElement.appendChild(removerBtn);
-    
+
                 cartItemsDiv.appendChild(itemElement);
                 total += precoPorProduto[item];
             });
-    
+
             // Atualiza o total do carrinho
             const cartTotalDiv = document.getElementById('cart-total');
             cartTotalDiv.innerText = 'Total: €' + total.toFixed(2);
-    
+
+            // Mostra ou oculta a seção do carrinho com base na quantidade de itens
+            cartSection.style.display = carrinho.length > 0 ? 'block' : 'none';
+
             // Mostra o botão de finalizar compra se houver itens no carrinho
             const finalizarBtn = document.getElementById('finalizar-compra');
             finalizarBtn.style.display = carrinho.length > 0 ? 'block' : 'none';
         }
-    
 
         function finalizarCompra() {
-        // Redireciona para a página de pagamento
-        window.location.href = 'paymentPage.html';
-    }
+            // Redireciona para a página de pagamento
+            window.location.href = 'paymentPage.html';
+        }
     </script>
-
 </body>
 </html>
-
