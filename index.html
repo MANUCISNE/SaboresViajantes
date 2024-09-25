@@ -27,18 +27,24 @@
             <li><a href="#contato">Contato</a></li>
             </ul>
           </nav>
-          <!-- Seção do Carrinho -->
-    <section id="carrinho">
-        <!-- Ícone do Carrinho -->
-        <div class="cart">
-            <a href="#carrinho"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
-          </div>
+    
+<!-- Seção do Carrinho -->
+<section id="carrinho">
+    <!-- Ícone do Carrinho -->
+    <div class="cart">
+        <a href="#carrinho"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+    </div>
 
-        <h2>Carrinho de Compras</h2>
-        <div id="cart-items"></div>
-        <div id="cart-total"></div>
-    </section>
-          <!-- Slogan -->
+    <h2>Carrinho de Compras</h2>
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+
+    <!-- Botão de Finalizar Compra -->
+    <button id="finalizar-compra" class="checkout-btn" style="display: none;" onclick="finalizarCompra()">Finalizar Compra</button>
+
+</section>
+
+<!-- Slogan -->
           <div class="slogan">
               <h1>Sabores Viajantes</h1>
               <p>A verdadeira experiência dos pastéis de nata</p>
@@ -137,9 +143,15 @@
 </section>
 
     <!-- Rodapé -->
-    <footer>
+<footer>
+    <div class="footer-content">
         <p>&copy; 2024 Sabores Viajantes. Todos os direitos reservados.</p>
-    </footer>
+        <p>
+            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" class="reclamacoes-link">Livro de Reclamações</a>
+        </p>
+    </div>
+</footer>
+
 
     <script>
         let carrinho = [];
@@ -166,36 +178,47 @@
     
         // Função para exibir o carrinho
         function mostrarCarrinho() {
-    const cartItemsDiv = document.getElementById('cart-items');
-    cartItemsDiv.innerHTML = '';
-    let total = 0;
+            const cartItemsDiv = document.getElementById('cart-items');
+            cartItemsDiv.innerHTML = '';
+            let total = 0;
+    
+            // Exibe os itens do carrinho
+            carrinho.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');  // Adiciona uma classe para o estilo
+    
+                // Informações do item
+                const itemInfo = document.createElement('span');  // Usar 'span' para exibir na mesma linha
+                itemInfo.innerText = (index + 1) + '. ' + item + ' - €' + precoPorProduto[item].toFixed(2);
+                itemElement.appendChild(itemInfo);
+    
+                // Botão de remover
+                const removerBtn = document.createElement('button');
+                removerBtn.innerText = 'Remover';
+                removerBtn.classList.add('remove-btn');
+                removerBtn.onclick = () => removerDoCarrinho(index);
+                itemElement.appendChild(removerBtn);
+    
+                cartItemsDiv.appendChild(itemElement);
+                total += precoPorProduto[item];
+            });
+    
+            // Atualiza o total do carrinho
+            const cartTotalDiv = document.getElementById('cart-total');
+            cartTotalDiv.innerText = 'Total: €' + total.toFixed(2);
+    
+            // Mostra o botão de finalizar compra se houver itens no carrinho
+            const finalizarBtn = document.getElementById('finalizar-compra');
+            finalizarBtn.style.display = carrinho.length > 0 ? 'block' : 'none';
+        }
+    
 
-    // Exibe os itens do carrinho
-    carrinho.forEach((item, index) => {
-        const itemElement = document.createElement('div');
-        itemElement.classList.add('cart-item');  // Adiciona uma classe para o estilo
-
-        // Informações do item
-        const itemInfo = document.createElement('span');  // Usar 'span' para exibir na mesma linha
-        itemInfo.innerText = (index + 1) + '. ' + item + ' - €' + precoPorProduto[item].toFixed(2);
-        itemElement.appendChild(itemInfo);
-
-        // Botão de remover
-        const removerBtn = document.createElement('button');
-        removerBtn.innerText = 'Remover';
-        removerBtn.classList.add('remove-btn');
-        removerBtn.onclick = () => removerDoCarrinho(index);
-        itemElement.appendChild(removerBtn);
-
-        cartItemsDiv.appendChild(itemElement);
-        total += precoPorProduto[item];
-    });
-
-    // Atualiza o total do carrinho
-    const cartTotalDiv = document.getElementById('cart-total');
-    cartTotalDiv.innerText = 'Total: €' + total.toFixed(2);
-}
-    </script>    
+        function finalizarCompra() {
+        // Redireciona para a página de pagamento
+        window.location.href = 'paymentPage.html';
+    }
+    </script>
 
 </body>
 </html>
+
