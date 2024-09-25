@@ -120,12 +120,34 @@ blockquote {
   color: #6a4c42;
 }
 
+/* Estilo do Rodapé */
 footer {
   background-color: #6a4c42; /* Marrom suave */
-  color: white;
+  color: #FFFFFF; /* Cor do texto branca para contraste */
   text-align: center;
-  padding: 10px 0;
-  margin-top: 20px;
+  padding: 20px;
+  margin-top: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer a {
+  color: #F1C40F; /* Cor do link em amarelo/dourado */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: #E67E22; /* Cor laranja ao passar o mouse */
+  text-decoration: underline;
 }
 
 .feedback-grid {
@@ -467,6 +489,25 @@ footer {
 .remove-btn:hover {
   background-color: #ff1a1a; /* Cor de fundo ao passar o mouse */
 }
+
+/* Estilo do botão de Finalizar Compra */
+.checkout-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: #218838;
+}
+
+
 
 
 
