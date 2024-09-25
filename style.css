@@ -355,3 +355,93 @@ footer {
   }
 }
 
+/* Estilos para o carrinho de compras */
+#carrinho {
+  background-color: #f1f1f1;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+#carrinho h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#cart-items p {
+  font-size: 18px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#cart-total {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+}
+
+/* Estilo geral para o ícone do carrinho */
+.cart {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;  /* Tamanho do ícone */
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.cart a {
+  text-decoration: none;
+  color: #333;  /* Cor do ícone */
+  transition: color 0.3s ease;
+}
+
+.cart a:hover {
+  color: #6a4c42; /* Cor do ícone quando o mouse passa por cima */
+}
+
+.cart i {
+  font-size: 28px;  /* Tamanho maior do ícone */
+}
+
+.cart #cart-count {
+  position: absolute;
+  color: black;  /* Cor do número */
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  border: 2px solid #6a4c42;  /* Borda ao redor do número para destacar */
+  transition: background-color 0.3s ease;
+}
+
+/* Estilos para o botão "Adicionar ao carrinho" */
+.add-to-cart-btn {
+  display: inline-block;
+  background-color: black;  /* Cor de fundo */
+  color: white;  /* Cor do texto */
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #6a4c42;  /* Cor de fundo ao passar o mouse */
+  transform: scale(1.05);  /* Efeito de aumentar levemente ao passar o mouse */
+}
+
+.add-to-cart-btn:active {
+  background-color: #ff6347;  /* Cor do botão quando pressionado */
+  transform: scale(1);  /* Retorno ao tamanho original ao clicar */
+}
+
+
