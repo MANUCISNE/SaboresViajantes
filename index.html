@@ -5,7 +5,7 @@
     <title>Sabores Viajantes - Pastéis de Nata</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
 </head>
 
@@ -22,11 +22,22 @@
               <ul>
                   <li><a href="#sobre">Sobre a Loja</a></li>
                   <li><a href="#menu">Menu</a></li>
-                  <li><a href="#historia">História</a></li>
-                  <li><a href="#feedback">Feedback</a></li>
-                  <li><a href="#contato">Contato</a></li>
-              </ul>
+            <li><a href="#historia">História</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li><a href="#contato">Contato</a></li>
+            </ul>
           </nav>
+          <!-- Seção do Carrinho -->
+    <section id="carrinho">
+        <!-- Ícone do Carrinho -->
+        <div class="cart">
+            <a href="#carrinho"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+          </div>
+
+        <h2>Carrinho de Compras</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total"></div>
+    </section>
           <!-- Slogan -->
           <div class="slogan">
               <h1>Sabores Viajantes</h1>
@@ -44,28 +55,33 @@
         </div>
     </section>
 
-    <!-- Seção Menu com Imagem -->
-    <section id="menu">
-      <h2>Menu de Pastéis de Nata</h2>
-      <div class="content">
-          <div class="menu-item">
-              <img src="imagem-tradicional.jpg" alt="Pastel de Nata Tradicional" class="menu-image">
-              <p>Pastel de Nata Tradicional</p>
-          </div>
-          <div class="menu-item">
-              <img src="imagem-chocolate.jpg" alt="Pastel de Nata com Chocolate" class="menu-image">
-              <p>Pastel de Nata com Chocolate</p>
-          </div>
-          <div class="menu-item">
-              <img src="imagem-frutas.jpg" alt="Pastel de Nata com Frutas" class="menu-image">
-              <p>Pastel de Nata com Frutas</p>
-          </div>
-          <div class="menu-item">
-              <img src="imagem-vegano.png" alt="Pastel de Nata Vegano" class="menu-image">
-              <p>Pastel de Nata Vegano</p>
-          </div>
-      </div>
-  </section>  
+    <!-- Seção Menu com Imagem --><!-- Seção Menu com Imagem e Preço -->
+<section id="menu">
+    <h2>Menu de Pastéis de Nata</h2>
+    <div class="content">
+        <div class="menu-item">
+            <img src="imagem-tradicional.jpg" alt="Pastel de Nata Tradicional" class="menu-image">
+            <p>Pastel de Nata Tradicional - €1.50</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata Tradicional')">Adicionar ao carrinho</button>
+        </div>
+        <div class="menu-item">
+            <img src="imagem-chocolate.jpg" alt="Pastel de Nata com Chocolate" class="menu-image">
+            <p>Pastel de Nata com Chocolate - €2.00</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata com Chocolate')">Adicionar ao carrinho</button>
+        </div>
+        <div class="menu-item">
+            <img src="imagem-frutas.jpg" alt="Pastel de Nata com Frutas" class="menu-image">
+            <p>Pastel de Nata com Frutas - €2.50</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata com Frutas')">Adicionar ao carrinho</button>
+        </div>
+        <div class="menu-item">
+            <img src="imagem-vegano.png" alt="Pastel de Nata Vegano" class="menu-image">
+            <p>Pastel de Nata Vegano - €2.00</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('Pastel de Nata Vegano')">Adicionar ao carrinho</button>
+        </div>
+    </div>
+</section>
+
 
     <!-- Seção História com Imagem -->
     <section id="historia">
@@ -120,10 +136,44 @@
     </div>
 </section>
 
-
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2024 Sabores Viajantes. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Script -->
+<script>
+    let carrinho = [];
+    let precoPorProduto = {
+        'Pastel de Nata Tradicional': 1.50,
+        'Pastel de Nata com Chocolate': 2.00,
+        'Pastel de Nata com Frutas': 2.50,
+        'Pastel de Nata Vegano': 2.00
+    };
+
+    function adicionarAoCarrinho(produto) {
+        carrinho.push(produto);
+        document.getElementById('cart-count').innerText = carrinho.length;
+        mostrarCarrinho();
+    }
+
+    function mostrarCarrinho() {
+        const cartItemsDiv = document.getElementById('cart-items');
+        cartItemsDiv.innerHTML = '';
+        let total = 0;
+
+        carrinho.forEach((item, index) => {
+            const itemElement = document.createElement('p');
+            itemElement.innerText = (index + 1) + '. ' + item + ' - €' + precoPorProduto[item].toFixed(2);
+            cartItemsDiv.appendChild(itemElement);
+            total += precoPorProduto[item];
+        });
+
+        // Atualiza o total do carrinho
+        const cartTotalDiv = document.getElementById('cart-total');
+        cartTotalDiv.innerText = 'Total: €' + total.toFixed(2);
+    }
+</script>
+
 </body>
 </html>
