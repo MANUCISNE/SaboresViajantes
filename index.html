@@ -141,39 +141,61 @@
         <p>&copy; 2024 Sabores Viajantes. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Script -->
-<script>
-    let carrinho = [];
-    let precoPorProduto = {
-        'Pastel de Nata Tradicional': 1.50,
-        'Pastel de Nata com Chocolate': 2.00,
-        'Pastel de Nata com Frutas': 2.50,
-        'Pastel de Nata Vegano': 2.00
-    };
+    <script>
+        let carrinho = [];
+        let precoPorProduto = {
+            'Pastel de Nata Tradicional': 1.50,
+            'Pastel de Nata com Chocolate': 2.00,
+            'Pastel de Nata com Frutas': 2.50,
+            'Pastel de Nata Vegano': 2.00
+        };
+    
+        // Função para adicionar ao carrinho
+        function adicionarAoCarrinho(produto) {
+            carrinho.push(produto);
+            document.getElementById('cart-count').innerText = carrinho.length;
+            mostrarCarrinho();
+        }
+    
+        // Função para remover um item do carrinho
+        function removerDoCarrinho(index) {
+            carrinho.splice(index, 1);  // Remove o item com base no índice
+            document.getElementById('cart-count').innerText = carrinho.length;
+            mostrarCarrinho();
+        }
+    
+        // Função para exibir o carrinho
+        function mostrarCarrinho() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    cartItemsDiv.innerHTML = '';
+    let total = 0;
 
-    function adicionarAoCarrinho(produto) {
-        carrinho.push(produto);
-        document.getElementById('cart-count').innerText = carrinho.length;
-        mostrarCarrinho();
-    }
+    // Exibe os itens do carrinho
+    carrinho.forEach((item, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('cart-item');  // Adiciona uma classe para o estilo
 
-    function mostrarCarrinho() {
-        const cartItemsDiv = document.getElementById('cart-items');
-        cartItemsDiv.innerHTML = '';
-        let total = 0;
+        // Informações do item
+        const itemInfo = document.createElement('span');  // Usar 'span' para exibir na mesma linha
+        itemInfo.innerText = (index + 1) + '. ' + item + ' - €' + precoPorProduto[item].toFixed(2);
+        itemElement.appendChild(itemInfo);
 
-        carrinho.forEach((item, index) => {
-            const itemElement = document.createElement('p');
-            itemElement.innerText = (index + 1) + '. ' + item + ' - €' + precoPorProduto[item].toFixed(2);
-            cartItemsDiv.appendChild(itemElement);
-            total += precoPorProduto[item];
-        });
+        // Botão de remover
+        const removerBtn = document.createElement('button');
+        removerBtn.innerText = 'Remover';
+        removerBtn.classList.add('remove-btn');
+        removerBtn.onclick = () => removerDoCarrinho(index);
+        itemElement.appendChild(removerBtn);
 
-        // Atualiza o total do carrinho
-        const cartTotalDiv = document.getElementById('cart-total');
-        cartTotalDiv.innerText = 'Total: €' + total.toFixed(2);
-    }
-</script>
+        cartItemsDiv.appendChild(itemElement);
+        total += precoPorProduto[item];
+    });
+
+    // Atualiza o total do carrinho
+    const cartTotalDiv = document.getElementById('cart-total');
+    cartTotalDiv.innerText = 'Total: €' + total.toFixed(2);
+}
+    </script>    
 
 </body>
 </html>
