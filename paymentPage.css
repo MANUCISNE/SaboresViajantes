@@ -1,0 +1,184 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4a90e2;
+}
+
+.sap_tabs {
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.resp-tabs-list {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #4a90e2;
+}
+
+.resp-tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.resp-tab-item:hover {
+  background: #e3f2fd;
+}
+
+.resp-tab-item span {
+  display: inline-block;
+  padding: 10px;
+}
+
+.resp-tabs-container {
+  padding: 20px;
+}
+
+.payment-info {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-top: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+h3.pay-title {
+  color: #4a90e2;
+}
+
+.tab-for {
+  margin-bottom: 20px;
+}
+
+.tab-for h5 {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.pay-logo {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+
+.pay-logo:focus {
+  border: 1px solid #4a90e2;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.user-form {
+  width: 48%;
+}
+
+.confirm-btn {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 20px 0;
+  transition: background 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #357ABD;
+}
+
+.radio {
+  margin-bottom: 10px;
+}
+
+.radio input {
+  margin-right: 10px;
+}
+
+.user-grids {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-left {
+  flex: 1;
+}
+
+.user-right {
+  flex: 1;
+  text-align: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.copy {
+  background-color: #f8f9fa; /* Cor de fundo clara */
+  color: #333; /* Cor do texto */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px 0; /* Espaçamento interno */
+  position: relative; /* Para permitir ajustes de posicionamento, se necessário */
+  bottom: 0; /* Mantém o rodapé na parte inferior da página */
+  width: 100%; /* Faz o rodapé ocupar toda a largura */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave em cima */
+}
+
+.copy p {
+  margin: 0; /* Remove margens padrão */
+  font-size: 14px; /* Tamanho da fonte */
+}
+
+.copy a {
+  color: #007bff; /* Cor do link */
+  text-decoration: none; /* Remove sublinhado do link */
+}
+
+.copy a:hover {
+  text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .sap_tabs {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .transaction {
+      flex-direction: column;
+  }
+
+  .user-form {
+      width: 100%;
+      margin-bottom: 15px;
+  }
+}
+
